@@ -32,7 +32,7 @@
 	  <div class="tab-content">
 	    <div role="tabpanel" class="tab-pane active" id="ticket">
 	    	<?php if($db->doubleSelectNow('ticket','ticketNo','status','publish','date',date("Y-m-d")) == "" ): ?>
-				<div class="col-md-12">
+				<div class="col-md-12 allow">
 					<div class="row">
 						<div class="col-md-12 text-right">
 							<br>
@@ -68,6 +68,20 @@
 						</div>	
 					</div>
 				</div>
+
+				<div class="col-md-2 not-allow">
+					
+				</div>
+				<div class="col-md-8 not-allow">
+					<br><br><br>
+					<center>
+					<div class="alert alert-danger text-center">
+						Your Ticket for today is already published
+					</div>
+				</div>
+				<div class="col-md-2">
+					
+				</div>				
 			<?php else: ?>
 				<div class="col-md-2">
 					
