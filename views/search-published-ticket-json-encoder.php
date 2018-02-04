@@ -6,12 +6,12 @@
 	$db = new database();
 	$ticket = new Ticket();
 
-	$ticket->getPublishedTicket($_SESSION['id']);
+	$ticket->searchPublishedTicket($_SESSION['id'],$_GET['search']);
 
 	$data = array();
 
-	if(!empty($ticket->getPublishedTicket_ticketNo()) > 0) {
-		foreach($ticket->getPublishedTicket_ticketNo() as $ticketNo) {
+	if(!empty($ticket->searchPublishedTicket_ticketNo()) > 0) {
+		foreach($ticket->searchPublishedTicket_ticketNo() as $ticketNo) {
 			$data[$ticketNo]['ticketNo'] = $ticketNo;
 			$data[$ticketNo]['date'] = $db->formatDate($db->selectNow('ticket','date','ticketNo',$ticketNo));
 		}
