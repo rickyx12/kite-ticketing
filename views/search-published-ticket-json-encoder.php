@@ -17,7 +17,13 @@
 		}
 		echo json_encode($data);
 	}else { 
-		echo "null";
+		$ticket->getPublishedTicket($_SESSION['id']);
+
+		foreach($ticket->getPublishedTicket_ticketNo() as $ticketNo) {
+			$data[$ticketNo]['ticketNo'] = $ticketNo;
+			$data[$ticketNo]['date'] = $db->formatDate($db->selectNow('ticket','date','ticketNo',$ticketNo));			
+		}
+		echo json_encode($data);
 	}
 
 

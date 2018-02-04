@@ -15,6 +15,10 @@
 		<script src="../assets/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
 
 		<script src="../assets/sweetalert.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../assets/tooltipster/dist/css/tooltipster.bundle.min.css" />
+		<script src="../assets/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
+
 	</head>
 	<?php include 'navbar.php' ?>
 	<body>
@@ -104,7 +108,7 @@
 	    	<div class="row">
 	    		<div class="col-md-4">
 	    			<div class="input-group">
-	    				<input type="text" class="form-control" placeholder="Search">
+	    				<input type="text" id="search-ticket" class="form-control" placeholder="Search">
 	    				<span class="input-group-addon">
 	    					<i class="glyphicon glyphicon-search"></i>
 	    				</span>
@@ -180,36 +184,6 @@
 		        </button>
 		        <button type="button" id="add-ticket-btn" class="btn btn-success" data-dismiss="modal">
 		        	Add
-		        </button>
-		      </div>
-		    </div>
-
-		  </div>
-		</div>
-
-
-		<div id="published-modal" class="modal fade" role="dialog">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-body">
-		      	<div class="form-group col-md-8">
-		      		<input type="text" class="form-control" placeholder="Search Ticket# or Date">
-		      	</div>
-		       	<table class="table table-hover">
-		       		<thead>
-		       			<tr>
-		       				<th>Ticket#</th>
-		       				<th>Date</th>
-		       				<th></th>
-		       			</tr>
-		       		</thead>
-		       		<tbody id="published-ticket-table">
-		       		</tbody>
-		       	</table>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">		
-		        	Close
 		        </button>
 		      </div>
 		    </div>

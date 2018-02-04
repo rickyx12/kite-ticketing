@@ -158,7 +158,6 @@ $(function(){
 	});
 
 	$('#search-ticket').keyup(function(){
-		//
 		var search = $('#search-ticket').val();
 		searchPublishedTicket('search-published-ticket-json-encoder.php?search='+search);
 	});
