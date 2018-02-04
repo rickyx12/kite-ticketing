@@ -134,4 +134,5 @@ public function __construct() {
 		($number > 0) ? $x = number_format($number,2) : $x = "";
 		return $x;
 	}
+	
 }

@@ -3,6 +3,7 @@
 	require '../class/database.php';
 
 	$db = new database();
+
 ?>
 <html>
 	<head>
@@ -15,9 +16,6 @@
 		<script src="../assets/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
 
 		<script src="../assets/sweetalert.min.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="../assets/tooltipster/dist/css/tooltipster.bundle.min.css" />
-		<script src="../assets/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
 
 	</head>
 	<?php include 'navbar.php' ?>

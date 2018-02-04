@@ -52,7 +52,7 @@
 
 		public function searchPublishedTicket($employee,$search) {
 			$connection = mysqli_connect($this->host,$this->username,$this->password,$this->database);      
-			$result = mysqli_query($connection, " SELECT ticketNo FROM ticket WHERE employee = '$employee' AND ticketNo = '$search' AND status = 'publish' GROUP BY ticketNo ORDER BY ticketNo ASC ") or die("Query fail: " . mysqli_error()); 
+			$result = mysqli_query($connection, " SELECT ticketNo FROM ticket WHERE employee = '$employee' AND (ticketNo = '$search' OR dateFormatted LIKE '$search%') AND status = 'publish' GROUP BY ticketNo ORDER BY ticketNo ASC ") or die("Query fail: " . mysqli_error()); 
 			while($row = mysqli_fetch_array($result))
 			{
 				$this->searchPublishedTicket_ticketNo[] = $row['ticketNo'];

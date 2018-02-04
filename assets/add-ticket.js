@@ -82,7 +82,6 @@ $(function(){
 	getTicket('ticket-json-encoder.php');
 	getPublishedTicket('published-ticket-json-encoder.php');
 
-
 	$('#add-ticket-btn').click(function(){
 
 		var subject = $('#subject').val();

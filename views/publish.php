@@ -16,6 +16,7 @@
 	foreach($id as $id) {
 		$db->editNow('ticket','id',$id,'status','publish');
 		$db->editNow('ticket','id',$id,'date',date("Y-m-d"));
+		$db->editNow('ticket','id',$id,'dateFormatted',$db->formatDate(date('Y-m-d')));
 		$db->editNow('ticket','id',$id,'ticketNo',$ticketNo);
 	}
 ?>
