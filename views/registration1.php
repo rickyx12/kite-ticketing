@@ -5,13 +5,15 @@
 	$empId = $_POST['empId'];
 	$password = $_POST['password'];
 	$employeeName = $_POST['employeeName'];
+	$role = $_POST['role'];
 
 	$db = new database();
 
 	$data = array(
 		"employeeId" => $empId,
 		"password" => Bcrypt::hashPassword($password),
-		"name" => $employeeName
+		"name" => $employeeName,
+		"role" => $role
 	);
 
 	$db->insertNow('user',$data);

@@ -29,6 +29,13 @@
 								<div class="form-group">
 									<label>Name</label>	
 									<input type="text" name="employeeName" class="form-control" autocomplete="off">							
+								</div>
+								<div class="form-group">
+									<label>Role</label>
+									<select name="role" class="form-control">
+										<option value="user">User</option>
+										<option value="admin">Admin</option>
+									</select>
 								</div>						
 							<div class="col-md-12 text-center">
 								<input type="submit" class="btn btn-default" value="Register">

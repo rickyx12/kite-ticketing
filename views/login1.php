@@ -13,7 +13,12 @@
 	if($db->selectNow('user','id','employeeId',$empId) != "") {
 		if(Bcrypt::checkPassword($password,$hashedPassword)) {
 			$_SESSION['id'] = $db->selectNow('user','id','employeeId',$empId);
-			header("Location: ticket.php");
+			
+			if($db->selectNow('user','role','employeeId',$empId) == "user") {
+				header("Location: ticket.php");
+			}else {
+				header("Location: admin-panel.php");
+			}
 		}else {
 			header("Location: login.php?error=Authentication Error");
 		}
