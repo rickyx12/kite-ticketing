@@ -33,7 +33,7 @@
 					<div class="col-md-12">
 						<div class="col-md-6">
 							<label>NAME:</label>
-							<input type='text' id='name-field' value='<?= $db->selectNow("user","name","id",$_SESSION["id"]) ?>'>
+							<input type='text' id='name-field' value='<?= $db->selectNow("user","name","id",$db->selectNow("ticket",'employee','ticketNo',$_POST["ticketNo"])) ?>'>
 						</div>
 						<div class="col-md-3">
 								<label>SECTION:</label>
