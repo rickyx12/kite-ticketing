@@ -6,20 +6,34 @@
 	$db = new database();
 	$ticket = new Ticket();
 
-	$ticket->getPublishedTicket($_SESSION['id']);
-
 	$data = array();
 
-	if(!empty($ticket->getPublishedTicket_ticketNo()) > 0) {
-		foreach($ticket->getPublishedTicket_ticketNo() as $ticketNo) {
-			$data[$ticketNo]['ticketNo'] = $ticketNo;
-			$data[$ticketNo]['date'] = $db->formatDate($db->selectNow('ticket','date','ticketNo',$ticketNo));
+	if( $db->selectNow('user','role','id',$_SESSION['id']) == "user" ) {
+		$ticket->getPublishedTicketUser($_SESSION['id']);
+		
+		if(!empty($ticket->getPublishedTicketUser_ticketNo()) > 0) {
+			foreach($ticket->getPublishedTicketUser_ticketNo() as $ticketNo) {
+				$data[$ticketNo]['ticketNo'] = $ticketNo;
+				$data[$ticketNo]['date'] = $db->formatDate($db->selectNow('ticket','date','ticketNo',$ticketNo));
+			}
+			echo json_encode($data);
+		}else { 
+			echo "null";
 		}
-		echo json_encode($data);
-	}else { 
-		echo "null";
-	}
+	}else {
+		$ticket->getPublishedTicketAdmin();
 
+		if(!empty($ticket->getPublishedTicketAdmin_ticketNo()) > 0) { 
+			foreach($ticket->getPublishedTicketAdmin_ticketNo() as $ticketNo) {
+				$data[$ticketNo]['ticketNo'] = $ticketNo;
+				$data[$ticketNo]['date'] = $db->formatDate($db->selectNow('ticket','date','ticketNo',$ticketNo));
+				$data[$ticketNo]['employee'] = $db->selectNow('user','name','id',$db->selectNow('ticket','employee','ticketNo',$ticketNo));
+			}
+			echo json_encode($data);
+		}else {
+			echo "null";
+		}
+	}
 
 
 
