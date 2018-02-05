@@ -33,7 +33,7 @@
 	  <!-- Tab panes -->
 	  <div class="tab-content">
 	    <div role="tabpanel" class="tab-pane active" id="ticket">
-	    	<?php if($db->doubleSelectNow('ticket','ticketNo','status','publish','date',date("Y-m-d")) == "" ): ?>
+	    	<?php if($db->tripleSelectNow('ticket','ticketNo','status','publish','date',date("Y-m-d"),'employee',$_SESSION['id']) == "" ): ?>
 				<div class="col-md-12 allow">
 					<div class="row">
 						<div class="col-md-12 text-right">
