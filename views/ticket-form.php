@@ -17,45 +17,7 @@
 		<script src="../assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>		
 		<script src="../assets/jspdf.min.js"></script>
 		<script src="../assets/jspdf.plugin.autotable.js"></script>
-
-		<style>
-			#name-field {
-				width: 420px;
-				border-style: solid;
-				border-width: 1px;
-				border-top:0px;
-				border-right: 0px;
-				border-left: 0px;
-				padding-left: 2%;
-				margin-bottom: 3%;
-			}
-
-			.other-field {
-				width: 150px;
-				border-style: solid;
-				border-width: 1px;
-				border-top:0px;
-				border-right: 0px;
-				border-left: 0px;
-				padding-left: 2%;
-				margin-bottom: 3%;				
-			} 
-
-			.bottom-field {
-				width: 250px;
-				border-style: solid;
-				border-width: 1px;
-				border-top:0px;
-				border-right: 0px;
-				border-left: 0px;
-				padding-left: 2%;
-				margin-bottom: 0.5%;				
-			} 
-
-			.bottom-field-label {
-				padding-left: 20%;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="../assets/ticket-form.css">
 
 		<script>
 			var doc = new jsPDF();
@@ -139,24 +101,26 @@
 							</tbody>
 						</table>
 						<div class="row">
-							<div class="col-md-4">
-								Checked by:
-								<br><br>
-								<input type="text" class="bottom-field">
-								<br>
-								<label class="bottom-field-label">SUPERVISOR</label>
+							<div class="footer">
+								<div class="col-md-4">
+									Checked by:
+									<br><br>
+									<input type="text" class="bottom-field">
+									<br>
+									<label class="bottom-field-label">SUPERVISOR</label>
+								</div>
+								<div class="col-md-4">
+									Checked by:
+									<br><br>
+									<input type="text" class="bottom-field">
+									<br>
+									<label class="bottom-field-label">MANAGER</label>							
+								</div>
+								<div class="col-md-4">
+									
+								</div>
 							</div>
-							<div class="col-md-4">
-								Checked by:
-								<br><br>
-								<input type="text" class="bottom-field">
-								<br>
-								<label class="bottom-field-label">MANAGER</label>							
-							</div>
-							<div class="col-md-4">
-								
-							</div>
-						</div>
+						</footer>
 					</div>
 				</div>
 			</div>
