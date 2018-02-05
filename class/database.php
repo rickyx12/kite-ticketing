@@ -21,6 +21,7 @@ public function __construct() {
 			return $row['cols'];
 		}
 	}
+
 	public function doubleSelectNow($table,$cols,$condition,$value,$condition1,$value1) {
 		$connection = mysqli_connect($this->host,$this->username,$this->password,$this->database);      
 		$result = mysqli_query($connection, " SELECT ".$cols." as cols FROM ".$table." WHERE ".$condition." = '".$value."' AND ".$condition1." = '".$value1."' ") or die("Query fail: " . mysqli_error()); 
@@ -29,6 +30,16 @@ public function __construct() {
 			return $row['cols'];
 		}
 	}
+
+	public function tripleSelectNow($table,$cols,$condition,$value,$condition1,$value1,$condition2,$value2) {
+		$connection = mysqli_connect($this->host,$this->username,$this->password,$this->database);      
+		$result = mysqli_query($connection, " SELECT ".$cols." as cols FROM ".$table." WHERE ".$condition." = '".$value."' AND ".$condition1." = '".$value1."' AND ".$condition2." = '".$value2."' ") or die("Query fail: " . mysqli_error()); 
+		while($row = mysqli_fetch_array($result))
+		{
+			return $row['cols'];
+		}
+	}
+
 	private $insertNow_lastID;
 	public function insertNow_lastID() {
 		return $this->insertNow_lastID;
