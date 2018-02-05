@@ -34,7 +34,7 @@
 	    				 tableData += '<tr>';
 	    				 tableData += '<td>'+field.ticketNo+'</td>';
 	    				 tableData += '<td>'+field.date+'</td>';
-	    				 tableData += '<td><form id="ticket-form'+field.ticketNo+'" action="ticket-form.php" method="post" target="_blank" style="margin-bottom:0px;"><input type="hidden" name="ticketNo" value="'+field.ticketNo+'"><div class="btn-group"><button id="view-published-btn'+field.ticketNo+'" class="btn btn-default">View</button><button class="btn btn-danger">Print</button></div></form></td>';
+	    				 tableData += '<td><form id="ticket-form'+field.ticketNo+'" action="ticket-form.php" method="post" target="_blank" style="margin-bottom:0px;"><input type="hidden" name="ticketNo" value="'+field.ticketNo+'"><div class="btn-group"><button id="view-published-btn'+field.ticketNo+'" class="btn btn-default">View</button></div></form></td>';
 	    				 tableData += '</tr>';
 
 	    				 $(document).on('click','#view-published-btn'+field.ticketNo,function(event){
