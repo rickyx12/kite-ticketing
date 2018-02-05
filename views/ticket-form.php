@@ -18,30 +18,9 @@
 		<script src="../assets/jspdf.min.js"></script>
 		<script src="../assets/jspdf.plugin.autotable.js"></script>
 		<link rel="stylesheet" type="text/css" href="../assets/ticket-form.css">
-
-		<script>
-			var doc = new jsPDF();
-			var specialElementHandlers = {
-			    '#editor': function (element, renderer) {
-			        return true;
-			    }
-			};
-
-			$(document).ready(function(){
-				$('#cmd').click(function () {   
-				    doc.fromHTML($('#content').get(0), 15, 15, {
-				        'width': 200,
-				            'elementHandlers': specialElementHandlers
-				    });
-				    doc.save('sample-file.pdf');
-				});
-			});
-		</script>
-
 	</head>
 	<body>
 		<br>
-		<input type="submit" id="cmd" value="PDF"> 
 		<div id="content">
 			<div class="container">
 				<div class="row">
