@@ -18,7 +18,8 @@
 		"end" => $end,
 		"activity" => $activity,
 		"remarks" => $remarks,
-		"employee" => $_SESSION['id']
+		"employee" => $_SESSION['id'],
+		"employeeFormatted" => $db->selectNow('user','name','id',$_SESSION['id'])
 	);
 
 	$db->insertNow("ticket",$data);
