@@ -2,10 +2,11 @@
 
 	class Ticket {
 
-		public $host;
-		public $username;
-		public $password;
-		public $database;
+		private $host;
+		private $username;
+		private $password;
+		private $database;
+
 		public function __construct() {
 		  $this->host = $_SERVER['DB_HOST'];
 		  $this->username = $_SERVER['DB_USER'];
@@ -29,33 +30,63 @@
 			}	
 		}
 
-		private $getPublishedTicket_ticketNo;
+		private $getPublishedTicketUser_ticketNo;
 
-		public function getPublishedTicket_ticketNo() {
-			return $this->getPublishedTicket_ticketNo;
+		public function getPublishedTicketUser_ticketNo() {
+			return $this->getPublishedTicketUser_ticketNo;
 		}
 
-		public function getPublishedTicket($employee) {
-			$connection = mysqli_connect($this->host,$this->username,$this->password,$this->database);      
+		public function getPublishedTicketUser($employee) {
+			$connection = mysqli_connect($this->host,$this->username,$this->password,$this->database);     
 			$result = mysqli_query($connection, " SELECT ticketNo FROM ticket WHERE employee = '$employee' AND status = 'publish' GROUP BY ticketNo ORDER BY ticketNo ASC ") or die("Query fail: " . mysqli_error()); 
 			while($row = mysqli_fetch_array($result))
 			{
-				$this->getPublishedTicket_ticketNo[] = $row['ticketNo'];
+				$this->getPublishedTicketUser_ticketNo[] = $row['ticketNo'];
 			}	
 		}
 
-		private $searchPublishedTicket_ticketNo;
+		private $getPublishedTicketAdmin_ticketNo;
 
-		public function searchPublishedTicket_ticketNo() {
-			return $this->searchPublishedTicket_ticketNo;
+		public function getPublishedTicketAdmin_ticketNo() {
+			return $this->getPublishedTicketAdmin_ticketNo;
 		}
 
-		public function searchPublishedTicket($employee,$search) {
+		public function getPublishedTicketAdmin() {
+			$connection = mysqli_connect($this->host,$this->username,$this->password,$this->database);     
+			$result = mysqli_query($connection, " SELECT ticketNo FROM ticket WHERE status = 'publish' GROUP BY ticketNo ORDER BY ticketNo ASC ") or die("Query fail: " . mysqli_error()); 
+			while($row = mysqli_fetch_array($result))
+			{
+				$this->getPublishedTicketAdmin_ticketNo[] = $row['ticketNo'];
+			}	
+		}
+
+		private $searchPublishedTicketUser_ticketNo;
+
+		public function searchPublishedTicketUser_ticketNo() {
+			return $this->searchPublishedTicketUser_ticketNo;
+		}
+
+		public function searchPublishedTicketUser($employee,$search) {
 			$connection = mysqli_connect($this->host,$this->username,$this->password,$this->database);      
 			$result = mysqli_query($connection, " SELECT ticketNo FROM ticket WHERE employee = '$employee' AND (ticketNo = '$search' OR dateFormatted LIKE '$search%') AND status = 'publish' GROUP BY ticketNo ORDER BY ticketNo ASC ") or die("Query fail: " . mysqli_error()); 
 			while($row = mysqli_fetch_array($result))
 			{
-				$this->searchPublishedTicket_ticketNo[] = $row['ticketNo'];
+				$this->searchPublishedTicketUser_ticketNo[] = $row['ticketNo'];
+			}	
+		}
+
+		private $searchPublishedTicketAdmin_ticketNo;
+
+		public function searchPublishedTicketAdmin_ticketNo() {
+			return $this->searchPublishedTicketAdmin_ticketNo;
+		}
+
+		public function searchPublishedTicketAdmin($search) {
+			$connection = mysqli_connect($this->host,$this->username,$this->password,$this->database);      
+			$result = mysqli_query($connection, " SELECT ticketNo FROM ticket WHERE (ticketNo = '$search' OR dateFormatted LIKE '$search%' OR employeeFormatted LIKE '$search%') AND status = 'publish' GROUP BY ticketNo ORDER BY ticketNo ASC ") or die("Query fail: " . mysqli_error()); 
+			while($row = mysqli_fetch_array($result))
+			{
+				$this->searchPublishedTicketAdmin_ticketNo[] = $row['ticketNo'];
 			}	
 		}
 
@@ -80,6 +111,21 @@
 			while($row = mysqli_fetch_array($result))
 			{
 				$this->getTicketByTicketNo_id[] = $row['id'];
+			}				
+		}
+
+		private $getTodayPublishedTicket_ticketNo;
+
+		public function getTodayPublishedTicket_ticketNo() {
+			return $this->getTodayPublishedTicket_ticketNo;
+		}
+
+		public function getTodayPublishedTicket($date) {
+			$connection = mysqli_connect($this->host,$this->username,$this->password,$this->database);     
+			$result = mysqli_query($connection, " SELECT ticketNo FROM ticket WHERE status = 'publish' AND dateFormatted = '$date' GROUP BY ticketNo ORDER BY ticketNo ASC ") or die("Query fail: " . mysqli_error()); 
+			while($row = mysqli_fetch_array($result))
+			{
+				$this->getTodayPublishedTicket_ticketNo[] = $row['ticketNo'];
 			}				
 		}
 
