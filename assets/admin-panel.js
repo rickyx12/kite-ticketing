@@ -54,10 +54,11 @@ function getTodayPublishedTicket(json) {
 
 $(function(){
 
-	setTimeout(function(){
+	setInterval(function(){
 		getTodayPublishedTicket('today-published-json-encoder.php');
-		getPublishedTicket('published-ticket-json-encoder.php');
-	},10000);
+		},10000);
+
+	getPublishedTicket('published-ticket-json-encoder.php');
 
 	$('#search-ticket').keyup(function(){
 		var search = $('#search-ticket').val();
