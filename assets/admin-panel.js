@@ -56,7 +56,7 @@ $(function(){
 
 	setInterval(function(){
 		getTodayPublishedTicket('today-published-json-encoder.php');
-		},10000);
+		},4000);
 
 	getPublishedTicket('published-ticket-json-encoder.php');
 
